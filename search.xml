@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello Hexo!</title>
-    <url>/hello-hexo/</url>
-    <content><![CDATA[<p>从PJBlog开始，到Bo-Blog、Wordpress、Typecho，Hexo是我在生产环境使用的第五个博客程序。</p>
-<h2 id="一、Hexo简介"><a href="#一、Hexo简介" class="headerlink" title="一、Hexo简介"></a>一、Hexo简介</h2><p>Hexo是一个基于 Node.js 的博客框架，它允许用户通过 Markdown 文件来撰写内容，并将这些内容快速转换成静态 HTML 页面。由于最终生成的是静态文件，这意味着博客的加载速度会非常快，且易于部署到各种托管服务上。</p>
-<h2 id="二、为什么选择Hexo"><a href="#二、为什么选择Hexo" class="headerlink" title="二、为什么选择Hexo"></a>二、为什么选择Hexo</h2><p>从WordPress更换为Hexo主要有三个原因</p>
-<p>1.博客更新频率低，博客文章以MD文件保存，比较适应我目前的使用情况，便于保存博文数据；</p>
-<p>2.方便以后不想维护服务器了，可以挂载到GITHUB等静态服务做博客；</p>
-<p>3.Hexo目前中文开源区感觉比WordPress活跃。</p>
-<p>那么你是否也适用Hexo?</p>
-<p>这个问题每个人的情况都不一样，难以一文说尽，我就说说我个人需求。</p>
-<p>首先我没有详细的对比Hexo与其他静态博客程序有何具体优势，因为我的决定性权重在于活跃度，他能让我找到更多的教程、更多的开源主题和插件，所以既然都是静态博客程序，但在活跃度上，HEXO就成了我唯一选择。</p>
-<p>其次，独立博客是个折腾的过程，可能下一次什么博客程序热门我又转过去了，但是为了降低转移成本，我采取搭建第三方评论系统Waline，他通过识别URL区别评论，所以如果你也是个喜欢尝鲜的人，注意URL要统一，考虑清楚，像我这样的&#x2F;文件名&#x2F;的URL只适用于博文较少，博文较多的建议还是&#x2F;年份&#x2F;文件名&#x2F;，这样避免以后更换时，静态生成同文件夹文件过多。</p>
-<p>最后，Hexo并没有比WordPress省心，WordPress也能做到0SQL。但是如果你仅仅是个个人博客，个人爱好，没必要花太多时间和金钱在这上边，那么选择Hexo，调配好了，可以将博客搭建在静态服务上，第三方评论服务端可以搭建在Vercel这样的提供免费部署的服务商上。</p>
-<h2 id="三、使用Hexo中遇到的问题"><a href="#三、使用Hexo中遇到的问题" class="headerlink" title="三、使用Hexo中遇到的问题"></a>三、使用Hexo中遇到的问题</h2><p>因为我是采用独立部署的方式，所以遇到不少问题：</p>
-<p><strong>1.注意宝塔面板NODEJS环境无法获取LINUX全局变量。</strong></p>
-<p>比如我在搭建Waline评论服务时，设置了的LINUX全局变量怎么也不生效，最后才发现时宝塔面板环境造成的问题。</p>
-<p>我的解决方法如下：</p>
-<p>项目文件根目录创建.env文件，在文件里写入环境变量。</p>
-<p>我的示例</p>
-<div class="highlight-container" data-rel="Basic"><figure class="iseeu highlight basic"><table><tr><td class="code"><pre><span class="line"># 基本配置</span><br><span class="line">SITE_NAME=<span class="string">&quot;KOK&#x27;s Blog&quot;</span> # 站点名称</span><br><span class="line">SITE_URL=<span class="string">&quot;https://kok.plus&quot;</span> # 站点地址</span><br><span class="line"></span><br><span class="line"># 显示配置</span><br><span class="line">LEVELS=<span class="string">&quot;0,10,20,50,100,200&quot;</span> # 等级标签</span><br><span class="line">DISABLE_REGION=<span class="string">&quot;true&quot;</span> # 是否隐藏评论者的归属地</span><br><span class="line">DISABLE_USERAGENT=<span class="string">&quot;false&quot;</span> # 是否隐藏评论者的 UA</span><br><span class="line"></span><br><span class="line"># 安全配置</span><br><span class="line">SECURE_DOMAINS=<span class="string">&quot;&quot;</span> # 安全域名</span><br><span class="line">AKISMET_KEY=<span class="string">&quot;false&quot;</span> # Akismet 反垃圾评论服务 <span class="keyword">Key</span></span><br><span class="line">COMMENT_AUDIT=<span class="string">&quot;true&quot;</span> # 评论发布审核开关。</span><br><span class="line">IPQPS=<span class="string">&quot;30&quot;</span> # 评论间隔时间。</span><br><span class="line"></span><br><span class="line"># 评论通知</span><br><span class="line">PUSH_PLUS_KEY=<span class="string">&quot;&quot;</span> # token</span><br><span class="line">PUSH_PLUS_CHANNEL=<span class="string">&quot;wechat&quot;</span> # 发送渠道</span><br><span class="line">PUSH_PLUS_CALLBACKURL=<span class="string">&quot;wechat&quot;</span> # 发送结果回调地址</span><br><span class="line">SMTP_SERVICE=<span class="string">&quot;QQ&quot;</span> #SMTP 邮件发送服务提供商</span><br><span class="line">SMTP_USER=<span class="string">&quot;&quot;</span> #邮件用户名</span><br><span class="line">SMTP_PASS=<span class="string">&quot;&quot;</span> # 邮件密码</span><br><span class="line">SMTP_SECURE=<span class="string">&quot;true&quot;</span> #是否使用 SSL 连接 SMTP</span><br><span class="line">AUTHOR_EMAIL=<span class="string">&quot;5131408@qq.com&quot;</span> # 博主邮箱</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># MySQL配置</span><br><span class="line">MYSQL_DB=<span class="string">&quot;&quot;</span> # 数据库库名</span><br><span class="line">MYSQL_USER=<span class="string">&quot;&quot;</span> # 数据库用户名</span><br><span class="line">MYSQL_PASSWORD=<span class="string">&quot;&quot;</span> # 数据库密码</span><br></pre></td></tr></table></figure></div>
-
-<p>创建index.js文件</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dotenv = <span class="built_in">require</span>(<span class="string">&#x27;dotenv&#x27;</span>)</span><br><span class="line">dotenv.<span class="title function_">config</span>()</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;@waline/vercel/vanilla.js&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
-
-
-
-<p>最后在宝塔启动界面设置</p>
-<p>启动命令 <code>node index.js</code></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://drfs.ctcontents.com/file/1273598/1023584401/665ccc/kokblog/2024/hexo1.png"
-                      alt="Waline宝塔面板设置界面"
-                ></p>
-]]></content>
-      <categories>
-        <category>爱好</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>搜索也是一门学问!</title>
     <url>/search-learn/</url>
     <content><![CDATA[<p>&emsp;&emsp;做网站两年了,经常在网上找资料,这里总结我的一点经验,与大家分享。<br>&emsp;&emsp;如何使用搜索引擎,是学会上网必要的技能,这里就把各种搜索技巧做个简单的描述.<br>&emsp;&emsp;在搜索引擎中输入关键词，然后点击“搜索”就行了，系统很快会返回查询结果，这是最简单的查询方法，使用方便，但是查询的结果却不准确，可能包含着许多无用的信息,没有达到我们想要快速找到相关信息的目的.<br>&emsp;&emsp;我们需要的就是掌握一定的技巧排除这些无用的信息<br><strong>&lt;1&gt;.搜索之前的分析</strong><br>&emsp;&emsp;我们首先要分析一下自己的搜索需求，花上几秒钟思考一下,我要找的东西网上可能有吗？如果有，可能在哪里，是什么样子的？我要搜索的信息里含有哪些关键字？然后在选择”关键词” 如果你用错了关键词,得到的搜索结果差别很大<br>&emsp;&emsp;比如 你搜索 “九零后”和”90后” 搜索结果差异很明显<br>&emsp;&emsp;有些东西你根本用不着麻烦搜索引擎的，比如要找个公司的电话，打个114的速度大概比搜索引擎快得多。又有些问题，可能很难用合适的关键字描述，或者不能直接用搜索引擎搜到，那你可以尝试找个精通这个问题的朋友，或者寻找这方面的热门论坛来问，这也是一种搜索方法。有时，你能选择的最好搜索方法是放弃网络，跑一趟附近的图书馆，图书馆里有网上找不到的成吨的“信息”。当你确认你要找的信息适合通过搜索引擎在网上找之后，搜索到满意结果的概率就大得多了。<br><strong>&lt;2&gt;.灵活使用站内搜索和站外搜索引擎</strong><br>&emsp;&emsp;要注意,网站内自带的搜索引擎和百度或GOOGLE之类的专业搜索引擎是不同的,网站内自带的搜索引擎只要数据库里有这个信息你就能搜索到,而百度或GOOGLE之类搜索引擎从抓取网页、解析、索引到提供检索是有一个周期的，各搜索引擎的信息滞后周期从一周到一月不等，所以找最新内容应该去看新闻，用搜索引擎是找不到最新内容，只能找到一个星期或一个月以前的内容。另外，搜索引擎对动态内容，如：论坛、数据库内容，以及带frame结构的网页检索能力较弱，所以这类信息也不适合用搜索引擎搜索，而是应该去相关的网站寻找<br>&emsp;&emsp;比如说90后专属电子杂志”光颜V1.2版”, 由于”光颜”这个词很通用,会有很多搜索结果,搜索引擎并不会判断那一个”光颜” &emsp;&emsp;才是你想要的结果,他只会傻傻的摆出一大堆结果给你,这时候就要进入90后论坛,使用站内搜索,搜索光颜二字,就列出很多个结果,但这些结果相关程度比直接使用百度或GOOGLE之类的搜索引擎高多了 再改改关键词  光颜 V1.2 是不是结果更少了点呢 正确率增大了<br><strong>&lt;3&gt;.多次搜索</strong><br>&emsp;&emsp;一次成功的搜索由两个部分组成：正确的搜索关键词，有用的搜索结果。在你点击任何一条搜索结果之前，快速地分析一下你的搜索结果的标题、网址、摘要，会有助于你选出更准确的结果，帮你节省大量的时间。当然，到底哪一个是你需要的内容，取决于你在寻找什么，评估网络内容的质量和权威性是搜索的重要步骤。<br>&emsp;&emsp;一次成功的搜索也经常是由好几次搜索组成的，如果对自己搜索的内容不熟，即使是搜索高手，也不能保证第一次搜索就能找到想要的内容。搜索专家会先用简单的关键词测试，他们不会忙着仔细查看各条搜索结果，而是先从搜索结果页面里寻找更多的信息，再设计一个更好的关键词重新搜索，这样重复多次以后，就能设计出很棒的搜索关键词，也就能搜索到满意的搜索结果了。<br><strong>&lt;4&gt;.善于改正错误</strong><br>&emsp;&emsp;经常会有这样的事情发生：你似乎已尽了全力来搜索，但是依然没有找到需要的答案。这个时候，请不要放弃，认真回顾检查你的搜索过程，也许只是因为一个小差错。一个看上去毫无希望的搜索，很有可能在你检讨完自己的搜索策略后获得成功。<br>&emsp;&emsp;下面从网络上摘抄的一段初学者搜索时容易犯的4个低级错误和解决方法<br><strong>常见错误1：错别字</strong><br>&emsp;&emsp;经常发生的一种错误是，你输入的关键词含有错别字。笔者所做的统计表明，常有大量的错误搜索，光一个谢霆锋就有“谢霆锋”、“谢庭锋”、“谢霆峰”、“谢廷锋”、“谢庭峰”、“谢廷峰”6种查法，还有什么“星际争吧”、“以德制国”之类的，这样的关键词能搜索到什么有用资料吗？所以每当你觉得某种内容网上应该有不少、却搜索不到结果时，你应该先查一下是否有错别字。<br><strong>常见错误2：关键词太常见</strong><br>&emsp;&emsp;搜索引擎对常见词的搜索存在缺陷，因为这些词曝光率太高了，以至于出现在成百万网页中，使得它们事实上不能被用来帮你找到什么有用的内容。比如，搜索“电话”, 有无数网站提供跟“电话”相关的信息，从网上黄页到电话零售商到个人电话号码都有。所以当搜索结果太多太乱的时候，你应该尝试使用更多的关键词或者减号来搜索，不使用过于通用的词汇来搜索，设计一个类似“上海 &emsp;&emsp;常用电话”这样特殊的搜索关键词，会给你真正有用的结果。当然，如果你想找的是一串汽车网站或一串MP3网站，那么用“汽车”、“MP3”搜索就是正确的。<br><strong>常见错误3：多义词</strong><br>&emsp;&emsp;要小心使用多义词，比如搜索“Java”，你要找的信息究竟是太平洋上的一个岛、一种著名的咖啡、还是一种计算机语言？搜索引擎是不能理解辨别多义词的。最好的解决办法是，在搜索之前先问自己这个问题，然后用短语、用多个关键词或者用其他的词语来代替多义词作为搜索关键词。比如用“爪哇 印尼”、“爪哇 咖啡”、“Java 语言”分别搜索可以满足不同的需求。<br><strong>常见错误4：不会输关键词，想要什么输什么</strong><br>&emsp;&emsp;搜索失败的另一个常见原因是类似这样的搜索：“现代爱情故事歌词”、“信息早报在济南发行情况”、“铃羊车的各种图案”、“上海到成都列车时刻表”。<br>网友错把搜索引擎当成是听话的服务员了，其实搜索引擎是很机械的，当你用关键词搜索的时候，它只会把含有这个关键词的网页找出来，根本不管网页上的内容是什么。<br>&emsp;&emsp;而问题在于，没有一个网页上会含有“现代爱情故事歌词”和“上海到成都列车时刻表”这样的关键词，所以搜索引擎也找不到这样的网页。但是真正含有你想找的内容的网页，应该含有的关键词是“现代爱情故事”、“歌词”，“上海”、“成都”、“列车”、“时刻表”，所以你应该这样搜索：“现代爱情故事 歌词”、“信息早报 济南 发行”、“铃羊车 图案”“上海 成都 列车 时刻表”。<br>&emsp;&emsp;明白了吗？不要用你心中想的大白话去搜索，当搜索结果太少甚至没有的时候，你应该输入更简单的关键词来搜索，猜测你找的网页中可能含有的关键词，然后用那些关键词搜索.<br><strong>&lt;5&gt;.学会灵活的运用各种搜索引擎</strong><br>&emsp;&emsp;这里要先简单的介绍一下搜索引擎是如何工作的,才能更好的使用搜索引擎<br>&emsp;&emsp;搜索引擎的自动信息搜集功能分两种。一种是定期搜索，即每隔一段时间（不同的搜索引擎的更新周期不同,也遭成了我们使用不同搜索引擎的搜索结果差异的原因之一)搜索引擎主动派出“蜘蛛”程序，对一定IP地址范围内的互联网站进行检索，一旦发现新的网站，它会自动提取网站的信息和网址加入自己的数据库。<br>&emsp;&emsp;另一种是提交网站搜索，即网站拥有者主动向搜索引擎提交网址，它在一定时间内（2天到数月不等）定向向网站派出“蜘蛛”程序，扫描网站并将有关信息存入数据库，以备用户查询。<br>&emsp;&emsp;当用户以关键词查找信息时，搜索引擎会在数据库中进行搜寻，如果找到与用户要求内容相符的网站，便采用特殊的算法——通常根据网页中关键词的匹配程度，出现的位置&#x2F;频次，链接质量等——计算出各网页的相关度及排名等级，然后根据关联度高低，按顺序将这些网页链接返回给用户<br>&emsp;&emsp;各种搜索引擎的更新时间不同,每年都有变化,这里不细说,不过根据规律来看 &emsp;&emsp;百度比较”高傲”不轻易接受新的网站,但对于被他”认可”了的网站更新很快;GOOGLE比较”善良”,比较容易接受新站,对于国内网站相对比百度慢一些,但他有个自动博客的PING服务,能让博客被快速的收录;YAHOO中国比较”饥饿” 收录新站很快收录页面很多.(此为个人做站经历,可能于科学数据有些偏差,欢迎指出毛病)<br>&emsp;&emsp;多运用一些搜索引擎,会能得到某些搜索引擎所不能找到的结果<br><strong>&lt;6&gt;.简单介绍一些搜索技巧</strong><br><strong>1、使用双引号用（” “）</strong><br>给要查询的关键词加上双引号（半角，以下要加的其它符号同此），可以实现精确的查询，这种方法要求查询结果要精确匹配，不包括演变形式。例如在搜索引擎的文字框中输入“电传”，它就会返回网页中有“电传”这个关键字的网址，而不会返回诸如“电话传真”之类网页。<br><strong>2、使用加号（+）</strong><br>在关键词的前面使用加号，也就等于告诉搜索引擎该单词必须出现在搜索结果中的网页上，例如，在搜索引擎中输入“+电脑+电话+传真”就表示要查找的内容必须要同时包含“电脑、电话、传真”这三个关键词。<br><strong>3、使用减号（-）</strong><br>在关键词的前面使用减号，也就意味着在查询结果中不能出现该关键词，例如，在搜索引擎中输入“电视台-中央电视台”，它就表示最后的查询结果中一定不包含“中央电视台”。<br><strong>4、使用通配符（*和?）</strong><br>通配符包括星号（<em>）和问号（?），前者表示匹配的数量不受限制，后者匹配的字符数要受到限制，主要用在英文搜索引擎中。例如输入“computer</em>”，就可以找到“computer、computers、computerised、computerized”等单词，而输入“comp?ter”，则只能找到“computer、compater、competer”等单词。<br><strong>5、使用布尔检索</strong><br>所谓布尔检索，是指通过标准的布尔逻辑关系来表达关键词与关键词之间逻辑关系的一种查询方法，这种查询方法允许我们输入多个关键词，各个关键词之间的关系可以用逻辑关系词来表示。<br>and，称为逻辑“与”，用and进行连接，表示它所连接的两个词必须同时出现在查询结果中，例如，输入“computer and book”，它要求查询结果中必须同时包含computer和book。<br>or，称为逻辑“或”，它表示所连接的两个关键词中任意一个出现在查询结果中就可以，例如，输入“computer or book”，就要求查询结果中可以只有computer，或只有book，或同时包含computer和book。<br>not，称为逻辑“非”，它表示所连接的两个关键词中应从第一个关键词概念中排除第二个关键词，例如输入“automobile not car”，就要求查询的结果中包含automobile（汽车），但同时不能包含car（小汽车）。<br>near，它表示两个关键词之间的词距不能超过n个单词。<br>在实际的使用过程中，你可以将各种逻辑关系综合运用，灵活搭配，以便进行更加复杂的查询。<br><strong>6、使用括号</strong></p>
@@ -358,6 +315,190 @@
       </categories>
       <tags>
         <tag>鸡汤</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开启英文博客之旅</title>
+    <url>/english-blog/</url>
+    <content><![CDATA[<p>我创建了一个英文博客 <a class="link"   href="https://en.kok.plus/" >KOK’s Blog <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>,使用的是主博客的二级域名 en.kok.plus，欢迎各位访问。</p>
+<h1 id="一、为什么要创建英文博客"><a href="#一、为什么要创建英文博客" class="headerlink" title="一、为什么要创建英文博客"></a>一、为什么要创建英文博客</h1><p>1、最近在GITHUB与一些开源作者讨论问题，中文博客越来越不能满足要求了，因此，准备写一些英文博客更方便国际化交流，同时也锻炼下自己的英文写作能力。</p>
+<p>2、随着各种社交平台兴起，中文博客渐渐落寞，但对英文内容来说，英文博客还是有大批读者的。</p>
+<h1 id="二、英文博客写哪些内容"><a href="#二、英文博客写哪些内容" class="headerlink" title="二、英文博客写哪些内容"></a>二、英文博客写哪些内容</h1><p>英文博客会与中文博客同步，中文博客写的文章翻译成英文发布一遍，当然重点还是分享技术文章，方便与英文开发者交流，同时也会写一些博文向国外开发者介绍我们中国的美丽风景，特别是介绍我的家乡，多彩的贵州。</p>
+<h1 id="三、期待与博友的互动"><a href="#三、期待与博友的互动" class="headerlink" title="三、期待与博友的互动"></a>三、期待与博友的互动</h1><p>我非常期待与各位博友的互动。无论是对文章的评论，还是对文章内容的建议，我都非常欢迎。我相信，通过与博友的互动，我可以不断提高我的写作技巧，同时也可以让我认识更多的朋友。</p>
+<p>总的来说，我希望通过这个英文博客，能够更好地与国际开发者社区进行交流，分享我的知识，同时也学习到更多的知识。</p>
+]]></content>
+      <categories>
+        <category>爱好</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello Hexo!</title>
+    <url>/hello-hexo/</url>
+    <content><![CDATA[<p>从PJBlog开始，到Bo-Blog、Wordpress、Typecho，Hexo是我在生产环境使用的第五个博客程序。</p>
+<h2 id="一、Hexo简介"><a href="#一、Hexo简介" class="headerlink" title="一、Hexo简介"></a>一、Hexo简介</h2><p>Hexo是一个基于 Node.js 的博客框架，它允许用户通过 Markdown 文件来撰写内容，并将这些内容快速转换成静态 HTML 页面。由于最终生成的是静态文件，这意味着博客的加载速度会非常快，且易于部署到各种托管服务上。</p>
+<h2 id="二、为什么选择Hexo"><a href="#二、为什么选择Hexo" class="headerlink" title="二、为什么选择Hexo"></a>二、为什么选择Hexo</h2><p>从WordPress更换为Hexo主要有三个原因</p>
+<p>1.博客更新频率低，博客文章以MD文件保存，比较适应我目前的使用情况，便于保存博文数据；</p>
+<p>2.方便以后不想维护服务器了，可以挂载到GITHUB等静态服务做博客；</p>
+<p>3.Hexo目前中文开源区感觉比WordPress活跃。</p>
+<p>那么你是否也适用Hexo?</p>
+<p>这个问题每个人的情况都不一样，难以一文说尽，我就说说我个人需求。</p>
+<p>首先我没有详细的对比Hexo与其他静态博客程序有何具体优势，因为我的决定性权重在于活跃度，他能让我找到更多的教程、更多的开源主题和插件，所以既然都是静态博客程序，但在活跃度上，HEXO就成了我唯一选择。</p>
+<p>其次，独立博客是个折腾的过程，可能下一次什么博客程序热门我又转过去了，但是为了降低转移成本，我采取搭建第三方评论系统Waline，他通过识别URL区别评论，所以如果你也是个喜欢尝鲜的人，注意URL要统一，考虑清楚，像我这样的&#x2F;文件名&#x2F;的URL只适用于博文较少，博文较多的建议还是&#x2F;年份&#x2F;文件名&#x2F;，这样避免以后更换时，静态生成同文件夹文件过多。</p>
+<p>最后，Hexo并没有比WordPress省心，WordPress也能做到0SQL。但是如果你仅仅是个个人博客，个人爱好，没必要花太多时间和金钱在这上边，那么选择Hexo，调配好了，可以将博客搭建在静态服务上，第三方评论服务端可以搭建在Vercel这样的提供免费部署的服务商上。</p>
+<p>三、多端同步<br>1.CODING同步至GITHUB<br>国内访问github速度过慢的问题，先同步到coding，再利用coding的服务器往github同步，速度更快。<br>注意新创建的私人仓库，不能为空，也就是要先本地先提交一次，后续在CODING 里写入下边代码就可以自动同步了。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">  agent any</span><br><span class="line">  stages &#123;</span><br><span class="line">    stage(<span class="string">&#x27;检出&#x27;</span>) &#123;</span><br><span class="line">      steps &#123;</span><br><span class="line">        checkout([</span><br><span class="line">          <span class="variable">$class</span>: <span class="string">&#x27;GitSCM&#x27;</span>,</span><br><span class="line">          branches: [[name: env.GIT_BUILD_REF]],</span><br><span class="line">          userRemoteConfigs: [[url: env.GIT_REPO_URL, credentialsId: env.CREDENTIALS_ID]]</span><br><span class="line">        ])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">&#x27;推送部署&#x27;</span>) &#123;</span><br><span class="line">      steps &#123;</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&#x27;正在推送文件...&#x27;</span></span><br><span class="line">        sh <span class="string">&#x27;git fetch https://用户名:token@github.com/用户名/仓库名.git&#x27;</span></span><br><span class="line">        sh <span class="string">&#x27;git push -f https://用户名:token@github.com/用户名/仓库名.git HEAD:master&#x27;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&#x27;已完成文件推送.&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>GITHUB 部署 注意github屏蔽了搜索引擎的访问,注重搜索引擎的注意别部署在GITHUB<br>因为AccessKey权限很高，直接将其暴露在代码中非常危险，所以将其配置到Github仓库的Secrets中，相当于作为常量使用。</p>
+<p>在存储Hexo源代码的仓库中点击Settings，找到Secrets，添加两项。名称为KEY和SECRET，值分别为AccessKeyId和AccessKeySecret。</p>
+<h2 id="三、使用Hexo中遇到的问题"><a href="#三、使用Hexo中遇到的问题" class="headerlink" title="三、使用Hexo中遇到的问题"></a>三、使用Hexo中遇到的问题</h2><p>因为我是采用独立部署的方式，所以遇到不少问题：</p>
+<p><strong>1.注意宝塔面板NODEJS环境无法获取LINUX全局变量。</strong></p>
+<p>比如我在搭建Waline评论服务时，设置了的LINUX全局变量怎么也不生效，最后才发现时宝塔面板环境造成的问题。</p>
+<p>我的解决方法如下：</p>
+<p>项目文件根目录创建.env文件，在文件里写入环境变量。</p>
+<p>我的示例</p>
+<div class="highlight-container" data-rel="Basic"><figure class="iseeu highlight basic"><table><tr><td class="code"><pre><span class="line"># 基本配置</span><br><span class="line">SITE_NAME=<span class="string">&quot;KOK&#x27;s Blog&quot;</span> # 站点名称</span><br><span class="line">SITE_URL=<span class="string">&quot;https://kok.plus&quot;</span> # 站点地址</span><br><span class="line"></span><br><span class="line"># 显示配置</span><br><span class="line">LEVELS=<span class="string">&quot;0,10,20,50,100,200&quot;</span> # 等级标签</span><br><span class="line">DISABLE_REGION=<span class="string">&quot;true&quot;</span> # 是否隐藏评论者的归属地</span><br><span class="line">DISABLE_USERAGENT=<span class="string">&quot;false&quot;</span> # 是否隐藏评论者的 UA</span><br><span class="line"></span><br><span class="line"># 安全配置</span><br><span class="line">SECURE_DOMAINS=<span class="string">&quot;&quot;</span> # 安全域名</span><br><span class="line">AKISMET_KEY=<span class="string">&quot;false&quot;</span> # Akismet 反垃圾评论服务 <span class="keyword">Key</span></span><br><span class="line">COMMENT_AUDIT=<span class="string">&quot;true&quot;</span> # 评论发布审核开关。</span><br><span class="line">IPQPS=<span class="string">&quot;30&quot;</span> # 评论间隔时间。</span><br><span class="line"></span><br><span class="line"># 评论通知</span><br><span class="line">PUSH_PLUS_KEY=<span class="string">&quot;&quot;</span> # token</span><br><span class="line">PUSH_PLUS_CHANNEL=<span class="string">&quot;wechat&quot;</span> # 发送渠道</span><br><span class="line">PUSH_PLUS_CALLBACKURL=<span class="string">&quot;wechat&quot;</span> # 发送结果回调地址</span><br><span class="line">SMTP_SERVICE=<span class="string">&quot;QQ&quot;</span> #SMTP 邮件发送服务提供商</span><br><span class="line">SMTP_USER=<span class="string">&quot;&quot;</span> #邮件用户名</span><br><span class="line">SMTP_PASS=<span class="string">&quot;&quot;</span> # 邮件密码</span><br><span class="line">SMTP_SECURE=<span class="string">&quot;true&quot;</span> #是否使用 SSL 连接 SMTP</span><br><span class="line">AUTHOR_EMAIL=<span class="string">&quot;5131408@qq.com&quot;</span> # 博主邮箱</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># MySQL配置</span><br><span class="line">MYSQL_DB=<span class="string">&quot;&quot;</span> # 数据库库名</span><br><span class="line">MYSQL_USER=<span class="string">&quot;&quot;</span> # 数据库用户名</span><br><span class="line">MYSQL_PASSWORD=<span class="string">&quot;&quot;</span> # 数据库密码</span><br></pre></td></tr></table></figure></div>
+
+<p>创建index.js文件</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dotenv = <span class="built_in">require</span>(<span class="string">&#x27;dotenv&#x27;</span>)</span><br><span class="line">dotenv.<span class="title function_">config</span>()</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;@waline/vercel/vanilla.js&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>最后在宝塔启动界面设置</p>
+<p>启动命令 <code>node index.js</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://drfs.ctcontents.com/file/1273598/1023584401/665ccc/kokblog/2024/hexo1.png"
+                      alt="Waline宝塔面板设置界面"
+                ></p>
+]]></content>
+      <categories>
+        <category>爱好</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo网址导航主题 HexoNav</title>
+    <url>/hexonav/</url>
+    <content><![CDATA[<p>HexoNav是一款基于HEXO制作的网址导航主题。</p>
+<p>使用HexoNav搭建网址导航站的优点和缺点：</p>
+<p><strong>优点：</strong></p>
+<p>1.不需要自建后端服务</p>
+<p>2.纯静态加载速度快</p>
+<p>3.可使用<a class="link"   href="https://www.zt779.com/2024/141.html" >免费静态托管 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><strong>缺点：</strong></p>
+<p>1.数据量较大时，修改排序较为麻烦</p>
+<h2 id="一、主要功能"><a href="#一、主要功能" class="headerlink" title="一、主要功能"></a>一、主要功能</h2><ol>
+<li>站内搜索：在搜索时框内输出关键词，自动检索网址标题和说明。</li>
+<li>跳转页面：点击跳转页面，同时通过跳转页面实现统计点击次数。</li>
+<li>今日热榜：采用LyToday-JS插件展示今天新闻热榜。</li>
+<li>天气预报：使用天气API网页插件展示IP归属地天气。</li>
+</ol>
+<h2 id="二、演示效果"><a href="#二、演示效果" class="headerlink" title="二、演示效果"></a>二、演示效果</h2><p>演示站点： <a class="link"   href="https://nav.kok.plus/" >https://nav.kok.plus <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>演示图片如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s.kok.plus/1060942736/e4fe64/kokblog/2024/knav.png"
+                      alt="enter description here"
+                ></p>
+<h2 id="三、安装主题"><a href="#三、安装主题" class="headerlink" title="三、安装主题"></a>三、安装主题</h2><blockquote>
+<p>Hexo 版本需要大于 7.0.0 </p>
+</blockquote>
+<h3 id="1-安装主题"><a href="#1-安装主题" class="headerlink" title="1.安装主题"></a>1.安装主题</h3><p>下载主题，放在<code>themes</code>目录里<br>hexonav.zip: <a class="link"   href="http://ct.kok.plus/f/1273598-1060985285-5511f1" >http://ct.kok.plus/f/1273598-1060985285-5511f1 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="2-启用主题"><a href="#2-启用主题" class="headerlink" title="2.启用主题"></a>2.启用主题</h3><p>在 Hexo 根目录的 <code>_config.yml</code> 文件中，将 <code>theme</code> 值修改为 <code>hexonav</code>。</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">hexonav</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2-创建主题配置文件"><a href="#2-创建主题配置文件" class="headerlink" title="2.创建主题配置文件"></a>2.创建主题配置文件</h3><p>复制themes&#x2F;hexonav&#x2F;_config.yml 并修改文件名为 _config.hexonav.yml 放在根目录下</p>
+<h2 id="四、主题配置"><a href="#四、主题配置" class="headerlink" title="四、主题配置"></a>四、主题配置</h2><h3 id="1-CDN配置"><a href="#1-CDN配置" class="headerlink" title="1.CDN配置"></a>1.CDN配置</h3><div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">cdn:</span> <span class="string">/</span> <span class="comment">#静态文件CDN，例如填写https://aa.com/ 注意末尾要加上/ 以下各种链接都会加上这个前缀，注意字体文件跨域问题。</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2-网站图标"><a href="#2-网站图标" class="headerlink" title="2.网站图标"></a>2.网站图标</h3><div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">favicon:</span> <span class="string">favicon.ico</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="3-头部动态背景"><a href="#3-头部动态背景" class="headerlink" title="3.头部动态背景"></a>3.头部动态背景</h3><div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">headerbg:</span> <span class="string">headerbg/13.html</span> <span class="comment">#头部背景特效,内置13个特效,可以直接访问themes/hexonav/source/headerbg/*.html 查看</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="4-图标获取接口"><a href="#4-图标获取接口" class="headerlink" title="4.图标获取接口"></a>4.图标获取接口</h3><p>这个配置是用于获取网址对应的图标</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">icoapi:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#开启后，数据文件里的img地址失效。</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">&#x27;https://api.ekumao.com/api/favicon?url=&#x27;</span> <span class="comment"># 填写ICO API的URL</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>（1）使用免费ICO接口</strong></p>
+<p>我这里搜集了两个免费接口，第一个是谷歌的服务，第二个是个人站点。<br><code>https://t3.gstatic.cn/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;size=256&amp;url=</code><br><code>https://ico.kucat.cn/get.php?url=</code></p>
+<p><strong>（2）自建ICO图标获取服务接口</strong></p>
+<p>源码：<a class="link"   href="http://ct.kok.plus/f/1273598-1060970153-e2a685" >getFavicon-master.zip <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><strong>安装使用</strong></p>
+<p>上传到网站根目录或者 favicon 文件夹中</p>
+<p>在<code>get.php</code>文件里对默认图标和缓存时间进行设置</p>
+<p>cache 文件夹给 755 权限</p>
+<p>然后访问 <code>http://you.url/favicon/get.php?url=https://kok.plus</code></p>
+<p>如果出现获取不了的情况建议删除缓存再试一次</p>
+<p>注：文中 favicon 为 api 文件夹，酌情设置</p>
+<p><strong>伪静态</strong></p>
+<p>设置伪静态是为了方便你套了cdn后进行缓存</p>
+<p>Nginx规则</p>
+<div class="highlight-container" data-rel="Awk"><figure class="iseeu highlight awk"><table><tr><td class="code"><pre><span class="line">rewrite ^<span class="regexp">/favicon/</span>(.*)\.png$ <span class="regexp">/favicon/g</span>et.php?url=<span class="variable">$1</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p> Apache 规则</p>
+<div class="highlight-container" data-rel="Apache"><figure class="iseeu highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="section">&lt;IfModule mod_rewrite.c&gt;</span></span><br><span class="line"><span class="attribute">RewriteEngine</span> <span class="literal">On</span></span><br><span class="line"><span class="attribute">RewriteRule</span> ^favicon/(.*)\.png$ favicon/get.php?url=$<span class="number">1</span><span class="meta"> [L]</span></span><br><span class="line"><span class="section">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure></div>
+<p>调用方法 <a class="link"   href="http://you.url/favicon/kok.plus.png" >http://you.url/favicon/kok.plus.png <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>注：目标网址不能有 http(s):&#x2F;&#x2F;</p>
+<p>建议不要用伪静态，因为有时候你的收录的网址可能是有多层的动态地址。</p>
+<p>如果要使用伪静态需要修改</p>
+<p><code>tab.ejs</code>  <code>tab1.ejs</code>  <code>tab2.ejs</code>  这三个文件</p>
+<p>搜索：</p>
+<div class="highlight-container" data-rel="Gcode"><figure class="iseeu highlight gcode"><table><tr><td class="code"><pre><span class="line">&lt;<span class="meta">%</span> <span class="keyword">if</span> <span class="comment">(theme.icoapi.enable)</span> &#123; <span class="meta">%</span>&gt;</span><br><span class="line">&lt;img class=<span class="string">&quot;lazy&quot;</span> data-src=<span class="string">&quot;&lt;%= theme.icoapi.url %&gt;&lt;%= menu.url %&gt;&quot;</span> &gt;</span><br><span class="line">&lt;<span class="meta">%</span> &#125; else &#123; <span class="meta">%</span>&gt;</span><br><span class="line">&lt;img class=<span class="string">&quot;lazy&quot;</span> data-src=<span class="string">&quot;&lt;%= theme.icoapi.cdn %&gt;&lt;%= menu.img %&gt;&quot;</span> &gt;</span><br><span class="line">&lt;<span class="meta">%</span> &#125; <span class="meta">%</span>&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>修改为：</p>
+<div class="highlight-container" data-rel="Stylus"><figure class="iseeu highlight stylus"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">img</span> class=<span class="string">&quot;lazy&quot;</span> data-<span class="attribute">src</span>=<span class="string">&quot;&lt;%= menu.url.replace(/^https?:\/\//i, &#x27;&#x27;) %&gt;&quot;</span> &gt;</span><br></pre></td></tr></table></figure></div>
+<p>作用是输出的地址去掉<code>https://</code>和<code>http://</code></p>
+<p>你在调用伪静态时才能输出正确格式</p>
+<p><a class="link"   href="http://you.url/favicon/%E7%BD%91%E5%9D%80.png" >http://you.url/favicon/网址.png <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="5-跳转配置"><a href="#5-跳转配置" class="headerlink" title="5.跳转配置"></a>5.跳转配置</h3><div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">ctr:</span>  <span class="comment">#通过第三方统计服务，统计网址点击频次</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#开启后，使用/go/?url= 跳转，需要输入命令hexo new page go 创建页面</span></span><br><span class="line">  <span class="attr">code:</span> <span class="string">&#x27; &#x27;</span> <span class="comment"># 填写第三方统计代码，要求能显示详细受访页面。</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="6-今日热榜"><a href="#6-今日热榜" class="headerlink" title="6.今日热榜"></a>6.今日热榜</h3><p>使用lytoday-JS插件，接口有限制每天200次，如果你们有好的接口欢迎留言给我。</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">lytoday:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#启用今日热榜功能，该接口每天免费访问次数为500次。</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://lytoday.lylme.com/?day=60s&amp;hot=weibo,douyin,zhihu</span> <span class="comment"># 在 https://lytoday.lylme.com/code.html 生成你的接口地址 </span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="7-天气预报"><a href="#7-天气预报" class="headerlink" title="7.天气预报"></a>7.天气预报</h3><p>可以自己访问 <a class="link"   href="http://www.tianqiapi.com/" >http://www.tianqiapi.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">qweather:</span> <span class="string">&#x27;&lt;div class=&quot;rounded-circle weather&quot;&gt;&lt;div id=&quot;he-plugin-simple&quot; style=&quot;display: contents;&quot;&gt;&lt;/div&gt;&lt;iframe scrolling=&quot;no&quot; src=&quot;https://widget.tianqiapi.com/?style=te&amp;skin=pitaya&amp;color=FFFFFF&amp;paddingtop=6&quot; frameborder=&quot;0&quot; width=&quot;200&quot; height=&quot;24&quot; allowtransparency=&quot;true&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&#x27;</span> <span class="comment">#顶部导航栏天气预报代码</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="8-插入代码配置"><a href="#8-插入代码配置" class="headerlink" title="8.插入代码配置"></a>8.插入代码配置</h3><p>设置了头部和底部两个插入点</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom:</span></span><br><span class="line">  <span class="attr">head:</span> <span class="string">|-</span> <span class="comment"># 以下内容插入到&lt;head&gt;&lt;/head&gt;标签内，可设置多行，注意每行开头至少四个空格</span></span><br><span class="line">    <span class="string">&lt;!--</span> <span class="string">直接添加html内容即可</span> <span class="string">--&gt;</span></span><br><span class="line">    <span class="string">&lt;!--</span> <span class="string">可设置多行</span> <span class="string">--&gt;</span></span><br><span class="line">  <span class="attr">foot:</span> <span class="string">|-</span> <span class="comment"># 以下内容插入到&lt;/body&gt;标签之前，可设置多行，注意每行开头至少四个空格 注意单个代码不能有换行。</span></span><br><span class="line">    <span class="string">Copyright</span> <span class="string">©</span> <span class="string">&lt;a</span> <span class="string">target=&quot;_blank&quot;</span> <span class="string">href=&quot;&quot;&gt;HexoNav&lt;/a&gt;</span></span><br><span class="line">    <span class="string">&lt;script&gt;var</span> <span class="string">_hmt</span> <span class="string">=</span> <span class="string">_hmt</span> <span class="string">||</span> []<span class="string">;(function()</span> &#123;<span class="string">var</span> <span class="string">hm</span> <span class="string">=</span> <span class="string">document.createElement(&quot;script&quot;);hm.src</span> <span class="string">=</span> <span class="string">&quot;https://hm.baidu.com/hm.js?062685e39e06f9947b865df2e13901f7&quot;</span><span class="string">;var</span> <span class="string">s</span> <span class="string">=</span> <span class="string">document.getElementsByTagName(&quot;script&quot;)</span>[<span class="number">0</span>]<span class="string">;</span> <span class="string">s.parentNode.insertBefore(hm</span>, <span class="string">s);</span>&#125;<span class="string">)();&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="9-LOGO配置"><a href="#9-LOGO配置" class="headerlink" title="9.LOGO配置"></a>9.LOGO配置</h3><div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">logo:</span></span><br><span class="line">  <span class="attr">iconlight:</span> <span class="string">images/logo.png</span></span><br><span class="line">  <span class="attr">icondark:</span> <span class="string">images/logo.png</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">images/logo-light.png</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">images/logo-dark.png</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="10-网址分类"><a href="#10-网址分类" class="headerlink" title="10.网址分类"></a>10.网址分类</h3><p>注意<code>config</code>里的内容对应数据文件<code>source/_data/文件名.yml</code></p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#网址分类 config值 对应在数据文件名称</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">常用网址</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-fire</span></span><br><span class="line">    <span class="attr">config:</span> <span class="string">01x</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">常用工具</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-cut</span></span><br><span class="line">    <span class="attr">config:</span> <span class="string">02x</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">码农专区</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-code</span></span><br><span class="line">    <span class="attr">config:</span> <span class="string">03x</span></span><br><span class="line">    <span class="attr">submenu:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">资讯社区</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-caret-right</span></span><br><span class="line">        <span class="attr">config:</span> <span class="string">03x01</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">站长工具</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-caret-right</span></span><br><span class="line">        <span class="attr">config:</span> <span class="string">03x02</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">个站博客</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-slideshare</span></span><br><span class="line">    <span class="attr">config:</span> <span class="string">04x</span></span><br><span class="line">    <span class="attr">submenu:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">博客组织</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-caret-right</span></span><br><span class="line">        <span class="attr">config:</span> <span class="string">04x01</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">生活博客</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-caret-right</span></span><br><span class="line">        <span class="attr">config:</span> <span class="string">04x02</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">资源汇总</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-th-large</span></span><br><span class="line">    <span class="attr">config:</span> <span class="string">05x</span></span><br><span class="line">    <span class="attr">submenu:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">影视资源</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-caret-right</span></span><br><span class="line">        <span class="attr">config:</span> <span class="string">05x01</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">音乐资源</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-caret-right</span></span><br><span class="line">        <span class="attr">config:</span> <span class="string">05x02</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="11-侧边栏底部链接"><a href="#11-侧边栏底部链接" class="headerlink" title="11.侧边栏底部链接"></a>11.侧边栏底部链接</h3><div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">footmenu:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">在线留言</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-commenting-o</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://kok.plus/comments/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">网站提交</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-pencil</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://f.wps.cn/g/HfXNRDWt/</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="12-顶部链接"><a href="#12-顶部链接" class="headerlink" title="12.顶部链接"></a>12.顶部链接</h3><div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">headmenu:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">KOK博客</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-user-circle-o</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://kok.plus</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">本站源码</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-file-code-o</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://kok.plus/hexonav</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="五、使用教程"><a href="#五、使用教程" class="headerlink" title="五、使用教程"></a>五、使用教程</h2><h3 id="1-添加网址"><a href="#1-添加网址" class="headerlink" title="1.添加网址"></a>1.添加网址</h3><p>source&#x2F;_data&#x2F;文件名.yml</p>
+<p>示例</p>
+<div class="highlight-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">KOK博客</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://kok.plus</span></span><br><span class="line">  <span class="attr">img:</span> <span class="string">https://p.kok.plus/kokblog/favicon.ico</span></span><br><span class="line">  <span class="attr">description:</span> <span class="string">用一段文字记录生活。</span></span><br></pre></td></tr></table></figure></div>
+<p>注意，如果启用了图标接口就不需要再填写，<code>img</code></p>
+<p>建议启用图标接口，这样节省自己时间。</p>
+<h3 id="2-友情链接"><a href="#2-友情链接" class="headerlink" title="2.友情链接"></a>2.友情链接</h3><p>手动创建<code>source/_data/blogroll.yml</code> 文件</p>
+<p>示例：</p>
+<div class="highlight-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">Hexonav:</span> <span class="string">https://kok.plus/hexonav/</span></span><br><span class="line"><span class="string">KOK博客:</span> <span class="string">https://kok.plus/</span></span><br><span class="line"><span class="string">网站名称:</span> <span class="string">网站地址</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="3-LOGO制作"><a href="#3-LOGO制作" class="headerlink" title="3.LOGO制作"></a>3.LOGO制作</h3><p>懒得自己设计LOGO的可以使用这个LOGO制作工具（需扶墙）</p>
+<p><a class="link"   href="https://www.logoly.pro/" >https://www.logoly.pro/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="4-404错误页面"><a href="#4-404错误页面" class="headerlink" title="4.404错误页面"></a>4.404错误页面</h3><p>直接将index.html设置为404错误页面就行了，因为我觉得导航网站就一个页面，不需要404错误页面，所以就没做。</p>
+<h3 id="5-跳转页面"><a href="#5-跳转页面" class="headerlink" title="5.跳转页面"></a>5.跳转页面</h3><p>因为个人觉得跳转页面没啥必要，有需要的可以自己修改 <code>themes/hexonav/layout/go.ejs</code></p>
+<h2 id="六、后续计划"><a href="#六、后续计划" class="headerlink" title="六、后续计划"></a>六、后续计划</h2><ul>
+<li><input disabled="" type="checkbox"> 升级fontawesome图标库或者换成ICONFONT图标库</li>
+<li><input disabled="" type="checkbox"> 增加跳转页面模板</li>
+<li><input disabled="" type="checkbox"> 做一个点击统计页面(寻找能提供API的第三方统计服务)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>作品</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
