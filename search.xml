@@ -565,7 +565,8 @@
 <p><a class="link"   href="https://www.logoly.pro/" >https://www.logoly.pro/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <h3 id="4-404错误页面"><a href="#4-404错误页面" class="headerlink" title="4.404错误页面"></a>4.404错误页面</h3><p>直接将index.html设置为404错误页面就行了，因为我觉得导航网站就一个页面，不需要404错误页面，所以就没做。</p>
 <h3 id="5-跳转页面"><a href="#5-跳转页面" class="headerlink" title="5.跳转页面"></a>5.跳转页面</h3><p>因为个人觉得跳转页面没啥必要，有需要的可以自己修改 <code>themes/hexonav/layout/go.ejs</code></p>
-<h2 id="六、后续计划"><a href="#六、后续计划" class="headerlink" title="六、后续计划"></a>六、后续计划</h2><ul>
+<h2 id="六、后续计划"><a href="#六、后续计划" class="headerlink" title="六、后续计划"></a>六、后续计划</h2><p>后续功能开发的主要原则是：不自建后端。</p>
+<ul>
 <li><input disabled="" type="checkbox"> 升级fontawesome图标库或者换成ICONFONT图标库</li>
 <li><input disabled="" type="checkbox"> 增加跳转页面功能，跳转倒计时，跳转页面模板，跳转页广告位等</li>
 <li><input disabled="" type="checkbox"> 做一个点击统计页面(寻找能提供API的第三方统计服务)</li>
