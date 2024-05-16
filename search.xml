@@ -569,6 +569,8 @@
 <li><input disabled="" type="checkbox"> 增加跳转页面模板</li>
 <li><input disabled="" type="checkbox"> 做一个点击统计页面(寻找能提供API的第三方统计服务)</li>
 </ul>
+<h2 id="七、更新日志"><a href="#七、更新日志" class="headerlink" title="七、更新日志"></a>七、更新日志</h2><p> <strong>2024年5月16日</strong> </p>
+<p>安全更新：跳转页增加跳转来源判断，当来源地址不是主站时限制跳转，防止跳转页面被恶意利用。</p>
 ]]></content>
       <categories>
         <category>作品</category>
