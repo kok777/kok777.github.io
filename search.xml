@@ -471,6 +471,7 @@
 <p>3.可使用<a class="link"   href="https://www.zt779.com/2024/141.html" >免费静态托管 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p><strong>缺点：</strong></p>
 <p>1.数据量较大时，修改排序较为麻烦</p>
+<p> <strong>注意源码最新版本：2024年5月16日</strong> </p>
 <h2 id="一、主要功能"><a href="#一、主要功能" class="headerlink" title="一、主要功能"></a>一、主要功能</h2><ol>
 <li>站内搜索：在搜索时框内输出关键词，自动检索网址标题和说明。</li>
 <li>跳转页面：点击跳转页面，同时通过跳转页面实现统计点击次数。</li>
@@ -566,7 +567,7 @@
 <h3 id="5-跳转页面"><a href="#5-跳转页面" class="headerlink" title="5.跳转页面"></a>5.跳转页面</h3><p>因为个人觉得跳转页面没啥必要，有需要的可以自己修改 <code>themes/hexonav/layout/go.ejs</code></p>
 <h2 id="六、后续计划"><a href="#六、后续计划" class="headerlink" title="六、后续计划"></a>六、后续计划</h2><ul>
 <li><input disabled="" type="checkbox"> 升级fontawesome图标库或者换成ICONFONT图标库</li>
-<li><input disabled="" type="checkbox"> 增加跳转页面模板</li>
+<li><input disabled="" type="checkbox"> 增加跳转页面功能，跳转倒计时，跳转页面模板，跳转页广告位等</li>
 <li><input disabled="" type="checkbox"> 做一个点击统计页面(寻找能提供API的第三方统计服务)</li>
 </ul>
 <h2 id="七、更新日志"><a href="#七、更新日志" class="headerlink" title="七、更新日志"></a>七、更新日志</h2><p> <strong>2024年5月16日</strong> </p>
