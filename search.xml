@@ -662,7 +662,7 @@
 <h2 id="三、安装主题"><a href="#三、安装主题" class="headerlink" title="三、安装主题"></a>三、安装主题</h2><blockquote>
 <p>Hexo 版本需要大于 7.0.0 </p>
 </blockquote>
-<h3 id="1-安装主题"><a href="#1-安装主题" class="headerlink" title="1.安装主题"></a>1.安装主题</h3><p>下载主题，放在<code>themes</code>目录里<br>hexonav.zip: <a class="link"   href="http://ct.kok.plus/f/1273598-1060985285-5511f1" >http://ct.kok.plus/f/1273598-1060985285-5511f1 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="1-安装主题"><a href="#1-安装主题" class="headerlink" title="1.安装主题"></a>1.安装主题</h3><p>下载主题，放在<code>themes</code>目录里<br><a class="link"   href="http://ct.kok.plus/f/1273598-1060985285-5511f1?p=kokboke" >点此下载hexonav.zip <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <h3 id="2-启用主题"><a href="#2-启用主题" class="headerlink" title="2.启用主题"></a>2.启用主题</h3><p>在 Hexo 根目录的 <code>_config.yml</code> 文件中，将 <code>theme</code> 值修改为 <code>hexonav</code>。</p>
 <div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">hexonav</span></span><br></pre></td></tr></table></figure></div>
 
