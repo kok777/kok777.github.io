@@ -645,7 +645,7 @@
 <p>3.可使用<a class="link"   href="https://www.zt779.com/2024/141.html" >免费静态托管<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 <p><strong>缺点：</strong></p>
 <p>1.数据量较大时，修改排序较为麻烦</p>
-<p> <strong>注意源码最新版本：2024年5月16日</strong> </p>
+<p> <strong>注意源码最新版本：2025年3月26日</strong> </p>
 <h2 id="一、主要功能"><a href="#一、主要功能" class="headerlink" title="一、主要功能"></a>一、主要功能</h2><ol>
 <li>站内搜索：在搜索时框内输出关键词，自动检索网址标题和说明。</li>
 <li>跳转页面：点击跳转页面，同时通过跳转页面实现统计点击次数。</li>
@@ -745,27 +745,13 @@
 <li><input disabled="" type="checkbox"> 增加跳转页面功能，跳转倒计时，跳转页面模板，跳转页广告位等</li>
 <li><input disabled="" type="checkbox"> 做一个点击统计页面(寻找能提供API的第三方统计服务)</li>
 </ul>
-<h2 id="七、更新日志"><a href="#七、更新日志" class="headerlink" title="七、更新日志"></a>七、更新日志</h2><p> <strong>2025年3月26日</strong><br>主要安全改进 ：</p>
-<ol>
-<li>智能域名验证 <code>getVerifiedDomain</code><ul>
-<li>自动处理子域名（*.kok.plus → nav.kok.plus）</li>
-<li>原生URL API验证协议有效性</li>
-<li>防御非法协议（如javascript:）</li>
+<h2 id="七、更新日志"><a href="#七、更新日志" class="headerlink" title="七、更新日志"></a>七、更新日志</h2><p> <strong>2025年3月26日新增白名单验证系统</strong></p>
+<p>考虑隐私模式或者部分浏览器来源验证失败，改为采用白名单模式。</p>
+<ul>
+<li>动态解析 <code>source/_data</code> 目录下所有YAML文件</li>
+<li>自动提取 <code>url</code> 字段生成域名白名单</li>
+<li>支持多层级数据结构嵌套解析</li>
 </ul>
-</li>
-<li>用户交互增强 <code>countdown</code><ul>
-<li>显示目标域名并需要用户等待</li>
-<li>倒计时3秒后自动跳转</li>
-<li>提供随时取消的按钮</li>
-</ul>
-</li>
-<li>参数防御机制<ul>
-<li>统一验证URL格式有效性</li>
-<li>参数自动解码防御编码攻击</li>
-<li>立即终止非法请求</li>
-</ul>
-</li>
-</ol>
 <p> <strong>2024年5月16日</strong> </p>
 <p>安全更新：跳转页增加跳转来源判断，当来源地址不是主站时限制跳转，防止跳转页面被恶意利用。</p>
 ]]></content>
